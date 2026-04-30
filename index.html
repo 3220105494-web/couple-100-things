@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>情侣必做100件小事 - 余生很长请多指教</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+KuaiLe&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --pink-100: #FFF0F5;
+    --pink-200: #FFE4EC;
+    --pink-300: #FFB6C1;
+    --pink-400: #FF8FAB;
+    --pink-500: #FF6B9D;
+    --pink-600: #E8558A;
+    --pink-700: #D44076;
+    --gold: #D4A574;
+    --gold-light: #F0DCC8;
+    --white: #FFFFFF;
+    --gray-100: #F8F8F8;
+    --gray-200: #E8E8E8;
+    --gray-300: #D0D0D0;
+    --gray-400: #B0B0B0;
+    --text: #3D2C35;
+    --text-light: #8C7380;
+    --shadow-soft: 0 4px 20px rgba(255, 107, 157, 0.10);
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --shadow-pink: 0 6px 30px rgba(255, 107, 157, 0.18);
+  }
+
+  body {
+    font-family: 'Noto Serif SC', serif;
+    background: var(--pink-100);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ========== FLOATING HEARTS BACKGROUND ========== */
+  .hearts-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .heart-float {
+    position: absolute;
+    animation: floatUp linear infinite;
+    opacity: 0.15;
+    font-size: 24px;
+    color: var(--pink-500);
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(110vh) rotate(0deg) scale(0.5); opacity: 0; }
+    10% { opacity: 0.18; }
+    90% { opacity: 0.12; }
+    100% { transform: translateY(-10vh) rotate(360deg) scale(1.2); opacity: 0; }
+  }
+
+  /* ========== NAVIGATION BAR ========== */
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  .nav-logo {
+    font-size: 18px; font-weight: 700;
+    background: linear-gradient(135deg, var(--pink-500), var(--pink-700));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+  }
+  .nav-progress {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .progress-text {
+    font-size: 14px; font-weight: 600; color: var(--pink-600);
+    white-space: nowrap;
+  }
+  .progress-bar-wrap {
+    width: 160px; height: 8px;
+    background: var(--gray-200);
+    border-radius: 10px; overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink-400), var(--pink-600));
+    border-radius: 10px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .reset-btn {
+    background: none; border: 1.5px solid var(--pink-300);
+    color: var(--pink-500); padding: 6px 16px;
+    border-radius: 20px; cursor: pointer;
+    font-size: 12px; font-family: inherit;
+    transition: all 0.3s;
+  }
+  .reset-btn:hover {
+    background: var(--pink-500); color: white;
+    border-color: var(--pink-500);
+  }
+
+  /* ========== HERO SECTION ========== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px 60px;
+    z-index: 1;
+  }
+  .hero-photo-ring {
+    position: relative;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--pink-400), var(--pink-600), var(--gold), var(--pink-400));
+    background-size: 300% 300%;
+    animation: borderRotate 4s ease infinite;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-pink);
+  }
+  @keyframes borderRotate {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .hero-photo-ring img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+  }
+  .hero-title {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--pink-600), var(--pink-400), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    letter-spacing: 4px;
+  }
+  .hero-subtitle {
+    font-size: 18px;
+    color: var(--text-light);
+    font-weight: 300;
+    letter-spacing: 6px;
+    margin-bottom: 8px;
+  }
+  .hero-count {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white;
+    padding: 12px 28px;
+    border-radius: 40px;
+    box-shadow: var(--shadow-soft);
+    margin-top: 20px;
+  }
+  .hero-count .num {
+    font-size: 42px; font-weight: 700;
+    color: var(--pink-600);
+    font-family: 'ZCOOL KuaiLe', cursive;
+  }
+  .hero-count .label {
+    font-size: 14px; color: var(--text-light);
+  }
+  .scroll-hint {
+    position: absolute; bottom: 30px;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 8px; animation: bounce 2s ease infinite;
+    color: var(--pink-400); font-size: 13px;
+    letter-spacing: 2px;
+  }
+  .scroll-hint span { font-size: 24px; }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  /* ========== PHOTO SCATTER SECTIONS ========== */
+  .photo-scatter {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    z-index: 1;
+  }
+  .scatter-card {
+    width: 220px; height: 280px;
+    border-radius: 20px; overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  .scatter-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--shadow-pink);
+  }
+  .scatter-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+  }
+  .scatter-card:hover img { transform: scale(1.08); }
+  .scatter-card .caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.5));
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  .scatter-card:nth-child(odd) { transform: rotate(-2deg); }
+  .scatter-card:nth-child(even) { transform: rotate(2deg); }
+  .scatter-card:nth-child(odd):hover { transform: rotate(0deg) translateY(-8px) scale(1.03); }
+  .scatter-card:nth-child(even):hover { transform: rotate(0deg) translateY(-8px) scale(1.03); }
+
+  /* ========== SECTION TITLES ========== */
+  .section-title {
+    text-align: center;
+    padding: 60px 20px 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .section-title h2 {
+    font-size: 28px; font-weight: 600;
+    color: var(--pink-600);
+    letter-spacing: 4px;
+    display: inline-block;
+    position: relative;
+  }
+  .section-title h2::after {
+    content: '♥';
+    position: absolute; right: -40px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    animation: pulse 1.5s ease infinite;
+  }
+  .section-title h2::before {
+    content: '♥';
+    position: absolute; left: -40px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    animation: pulse 1.5s ease infinite 0.5s;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: translateY(-50%) scale(0.8); }
+    50% { opacity: 1; transform: translateY(-50%) scale(1.3); }
+  }
+  .section-divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--pink-300), var(--pink-500));
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ========== CHECKLIST GRID ========== */
+  .checklist-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 24px 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .checklist-item {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-card);
+    border: 2px solid transparent;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .checklist-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--pink-200);
+  }
+  .checklist-item:active {
+    transform: scale(0.97);
+    transition: transform 0.1s;
+  }
+  .checklist-item.completed {
+    background: linear-gradient(135deg, #FFF0F5, #FFE4EC);
+    border-color: var(--pink-300);
+    box-shadow: 0 4px 16px rgba(255, 107, 157, 0.12);
+  }
+  .checklist-item.completed::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--pink-500), var(--pink-400));
+    border-radius: 4px 0 0 4px;
+  }
+  .item-num {
+    font-size: 13px; font-weight: 600;
+    color: var(--gray-400);
+    min-width: 28px;
+    transition: color 0.4s;
+  }
+  .checklist-item.completed .item-num {
+    color: var(--pink-400);
+  }
+  .item-icon {
+    font-size: 22px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(1);
+    opacity: 0.5;
+  }
+  .checklist-item.completed .item-icon {
+    filter: grayscale(0);
+    opacity: 1;
+    animation: popIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes popIn {
+    0% { transform: scale(0.5); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  .item-text {
+    font-size: 14px; font-weight: 400;
+    color: var(--text);
+    line-height: 1.5;
+    transition: color 0.4s;
+  }
+  .checklist-item.completed .item-text {
+    color: var(--pink-700);
+    font-weight: 500;
+  }
+  .checklist-item.completed .item-text::after {
+    content: ' ✓';
+    color: var(--pink-500);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ========== MODAL ========== */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(61, 44, 53, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal {
+    background: white;
+    border-radius: 24px;
+    padding: 40px 36px 28px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .modal-overlay.active .modal {
+    transform: translateY(0) scale(1);
+  }
+  .modal-heart {
+    font-size: 60px;
+    animation: floatPulse 2s ease infinite;
+    margin-bottom: 12px;
+  }
+  @keyframes floatPulse {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-6px) scale(1.08); }
+  }
+  .modal-title {
+    font-size: 16px; font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+  .modal-item-name {
+    font-size: 20px; font-weight: 700;
+    color: var(--pink-600);
+    margin-bottom: 24px;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
+  .modal-btns {
+    display: flex; gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .modal-btn {
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-size: 15px; font-weight: 600;
+    cursor: pointer; border: none;
+    font-family: inherit;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+  .btn-complete {
+    background: linear-gradient(135deg, var(--pink-500), var(--pink-600));
+    color: white;
+    box-shadow: 0 4px 16px rgba(255, 107, 157, 0.3);
+  }
+  .btn-complete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(255, 107, 157, 0.4);
+  }
+  .btn-uncomplete {
+    background: var(--gray-100);
+    color: var(--text-light);
+    border: 1.5px solid var(--gray-300);
+  }
+  .btn-uncomplete:hover {
+    background: var(--gray-200);
+    transform: translateY(-2px);
+  }
+  .modal-close {
+    position: absolute;
+    top: 12px; right: 16px;
+    background: none; border: none;
+    font-size: 20px; cursor: pointer;
+    color: var(--gray-400);
+    transition: color 0.3s;
+  }
+  .modal-close:hover { color: var(--text); }
+
+  /* ========== CONFETTI ========== */
+  .confetti-piece {
+    position: fixed;
+    z-index: 3000;
+    pointer-events: none;
+    animation: confettiFall linear forwards;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    font-size: 13px;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 1;
+  }
+  .footer .big-heart {
+    display: block;
+    font-size: 36px;
+    margin-bottom: 8px;
+    animation: pulse 2s ease infinite;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 768px) {
+    .checklist-container {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      padding: 16px 8px 60px;
+    }
+    .checklist-item {
+      padding: 8px 4px;
+      border-radius: 10px;
+      flex-direction: column;
+      gap: 3px;
+      text-align: center;
+    }
+    .item-num { display: none; }
+    .item-text { font-size: 10px; line-height: 1.3; }
+    .item-icon { font-size: 20px; }
+    .checklist-item.completed::before {
+      width: 100%; height: 3px;
+      border-radius: 3px 3px 0 0;
+      top: 0; left: 0;
+    }
+    .navbar {
+      padding: 10px 16px;
+    }
+    .progress-bar-wrap { width: 100px; }
+    .hero-title { font-size: 26px; }
+    .photo-scatter { gap: 10px; padding: 20px 8px; }
+    .scatter-card {
+      width: 100px; height: 130px;
+      border-radius: 12px;
+    }
+    .scatter-card .caption { font-size: 10px; padding: 8px; }
+    .modal { padding: 28px 20px 22px; }
+    .modal-item-name { font-size: 17px; }
+    .modal-btn { padding: 10px 22px; font-size: 13px; }
+    .hero { min-height: 80vh; padding: 80px 16px 40px; }
+    .hero-photo-ring { width: 150px; height: 150px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating hearts background -->
+<div class="hearts-bg" id="heartsBg"></div>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="nav-logo">♥ 我们的恋爱清单</div>
+  <div class="nav-progress">
+    <span class="progress-text" id="progressText">0 / 100</span>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    <button class="reset-btn" onclick="resetAll()">重新开始</button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-photo-ring">
+    <img src="photos/09f901dd7f2ac5aeade5979097820a5.jpg" alt="我们的照片" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg, #FFB6C1, #FF6B9D)';this.parentElement.innerHTML+='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:60px;\'>💕</div>'">
+  </div>
+  <h1 class="hero-title">情侣必做<br>100件小事</h1>
+  <p class="hero-subtitle">余生很长 · 请多指教</p>
+  <div class="hero-count">
+    <span class="num" id="heroNum">0</span>
+    <span class="label">已完成</span>
+  </div>
+  <div class="scroll-hint">
+    <span>♥</span>
+    向下滑动开始
+  </div>
+</section>
+
+<!-- Photo Scatter Section 1 -->
+<section class="photo-scatter">
+  <div class="scatter-card">
+    <img src="photos/16613fa000bb9d112f6888410d1c77e.jpg" alt="甜蜜瞬间" onerror="this.parentElement.style.display='none'">
+    <div class="caption">甜蜜瞬间</div>
+  </div>
+  <div class="scatter-card">
+    <img src="photos/1ce49cb30858f16c29b142df75add74.jpg" alt="我们的回忆" onerror="this.parentElement.style.display='none'">
+    <div class="caption">我们的回忆</div>
+  </div>
+  <div class="scatter-card">
+    <img src="photos/222c857e2daf61151829976e19c2a96.jpg" alt="一起的日子" onerror="this.parentElement.style.display='none'">
+    <div class="caption">一起的日子</div>
+  </div>
+  <div class="scatter-card">
+    <img src="photos/29d6b98cc3732f220015e23354aa47f.jpg" alt="最美的时光" onerror="this.parentElement.style.display='none'">
+    <div class="caption">最美的时光</div>
+  </div>
+</section>
+
+<!-- Checklist Section -->
+<div class="section-title">
+  <h2>一件一件去完成</h2>
+  <div class="section-divider"></div>
+</div>
+
+<div class="checklist-container" id="checklist"></div>
+
+<!-- Photo Scatter Section 2 -->
+<section class="photo-scatter" style="margin-top: 20px;">
+  <div class="scatter-card">
+    <img src="photos/2e955020b7b5f8b6931a0cb9b3c2941.jpg" alt="浪漫时刻" onerror="this.parentElement.style.display='none'">
+    <div class="caption">浪漫时刻</div>
+  </div>
+  <div class="scatter-card">
+    <img src="photos/3d3e69aaad9de0c6e0b815b568a2a55.jpg" alt="永远一起" onerror="this.parentElement.style.display='none'">
+    <div class="caption">永远一起</div>
+  </div>
+  <div class="scatter-card">
+    <img src="photos/a66824de078a452a6365866d620e2e3.jpg" alt="未完待续" onerror="this.parentElement.style.display='none'">
+    <div class="caption">未完待续</div>
+  </div>
+</section>
+
+<!-- Footer -->
+<div class="footer">
+  <span class="big-heart">💍</span>
+  余生很长，请多指教
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-heart" id="modalHeart">💖</div>
+    <div class="modal-title">这件事你们完成了吗？</div>
+    <div class="modal-item-name" id="modalItemName"></div>
+    <div class="modal-btns">
+      <button class="modal-btn btn-complete" id="btnComplete" onclick="confirmItem(true)">✨ 已完成</button>
+      <button class="modal-btn btn-uncomplete" id="btnUncomplete" onclick="confirmItem(false)">○ 未完成</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ========== DATA ==========
+// All 100 items with matching emoji icons
+const items = [
+  { text: "一起戴情侣手链官宣", icon: "💫" },
+  { text: "一起去电影院看一场电影", icon: "🎬" },
+  { text: "一起做一次饭", icon: "🍳" },
+  { text: "一起手牵手压一次马路", icon: "🤝" },
+  { text: "一起穿情侣装逛街", icon: "👫" },
+  { text: "一起去游泳", icon: "🏊" },
+  { text: "一起吃火锅", icon: "🍲" },
+  { text: "一起给对方吹头发", icon: "💨" },
+  { text: "一起为对方挑衣服", icon: "👗" },
+  { text: "一起吃一次烛光晚餐", icon: "🕯️" },
+  { text: "一起换情侣头像", icon: "💑" },
+  { text: "一起过生日", icon: "🎂" },
+  { text: "一起打扫房间", icon: "🧹" },
+  { text: "一起敷面膜", icon: "😊" },
+  { text: "一起带同一个耳机听同一首歌", icon: "🎧" },
+  { text: "一起跨年", icon: "🎆" },
+  { text: "一起和朋友们吃饭", icon: "🍽️" },
+  { text: "一起玩游戏", icon: "🎮" },
+  { text: "一起爬山", icon: "⛰️" },
+  { text: "一起用情侣手机壳", icon: "📱" },
+  { text: "一起坐摩天轮", icon: "🎡" },
+  { text: "一起旅游", icon: "✈️" },
+  { text: "一起看一次海", icon: "🌊" },
+  { text: "一起看日出", icon: "🌅" },
+  { text: "一起逛超市买吃的", icon: "🛒" },
+  { text: "一起去鬼屋", icon: "👻" },
+  { text: "一起骑自行车", icon: "🚲" },
+  { text: "一起去潜水", icon: "🤿" },
+  { text: "一起去蹦极", icon: "🪂" },
+  { text: "一起坐一次飞机", icon: "🛫" },
+  { text: "一起睡懒觉", icon: "😴" },
+  { text: "一起做一次甜品", icon: "🧁" },
+  { text: "一起见证一次别人的婚礼", icon: "💒" },
+  { text: "一起在朋友圈秀次恩爱", icon: "📸" },
+  { text: "一起给对方取外号", icon: "💝" },
+  { text: "一起去露营", icon: "⛺" },
+  { text: "一起看次球赛", icon: "⚽" },
+  { text: "一起穿情侣鞋", icon: "👟" },
+  { text: "一起吃一次早餐", icon: "🥐" },
+  { text: "一起来次自驾游", icon: "🚗" },
+  { text: "一起逛一次夜市", icon: "🏮" },
+  { text: "一起去寺庙祈福", icon: "🙏" },
+  { text: "一起滑翔伞", icon: "🪂" },
+  { text: "一起养一只宠物", icon: "🐱" },
+  { text: "一起搭一次乐高", icon: "🧱" },
+  { text: "一起为对方亲手做个礼物", icon: "🎁" },
+  { text: "一起存钱做件有意义的事", icon: "💰" },
+  { text: "一起挤公交", icon: "🚌" },
+  { text: "一起泡脚", icon: "🦶" },
+  { text: "一起追剧", icon: "📺" },
+  { text: "一起看星星", icon: "⭐" },
+  { text: "一起玩一次真心话大冒险", icon: "🎯" },
+  { text: "一起抓一次娃娃", icon: "🧸" },
+  { text: "一起拍情侣照", icon: "📷" },
+  { text: "一起刷碗", icon: "🍽️" },
+  { text: "一起吃夜宵", icon: "🍜" },
+  { text: "一起过情人节", icon: "💘" },
+  { text: "一起滑雪", icon: "⛷️" },
+  { text: "一起去次动物园", icon: "🐘" },
+  { text: "一起准备过次圣诞", icon: "🎄" },
+  { text: "一起写关于对方喜欢与不喜欢的备忘录", icon: "📝" },
+  { text: "一起去对方家里吃饭", icon: "🏠" },
+  { text: "一起去次乐园", icon: "🎢" },
+  { text: "一起偷偷为对方买喜欢又舍不得买的礼物", icon: "💝" },
+  { text: "一起去海底世界", icon: "🐠" },
+  { text: "一起去看樱花", icon: "🌸" },
+  { text: "一起准备一次浪漫的告白", icon: "💌" },
+  { text: "一起去挑戒指", icon: "💍" },
+  { text: "一起试婚纱", icon: "👰" },
+  { text: "一起布置小窝", icon: "🏡" },
+  { text: "一起为对方做一次早餐", icon: "🥞" },
+  { text: "一起拍下对方的丑照", icon: "🤳" },
+  { text: "一起为对方拍最美的照", icon: "🌟" },
+  { text: "一起去果园摘次水果", icon: "🍓" },
+  { text: "一起看场雪", icon: "❄️" },
+  { text: "一起拍次写真", icon: "📸" },
+  { text: "一起换个情侣名", icon: "💕" },
+  { text: "一起去健身房健身", icon: "💪" },
+  { text: "一起晨跑", icon: "🏃" },
+  { text: "一起剪头发", icon: "✂️" },
+  { text: "一起吃一个冰淇淋", icon: "🍦" },
+  { text: "一起回忆过去", icon: "🌙" },
+  { text: "一起买墨镜", icon: "🕶️" },
+  { text: "一起看一次恐怖片", icon: "🔪" },
+  { text: "一起给对方写次情书", icon: "💌" },
+  { text: "一起看书", icon: "📚" },
+  { text: "一起坐一次船", icon: "⛵" },
+  { text: "一起坐一次绿皮火车", icon: "🚂" },
+  { text: "一起钓次鱼", icon: "🎣" },
+  { text: "一起种盆绿植", icon: "🪴" },
+  { text: "一起看次报纸", icon: "📰" },
+  { text: "一起尝试一次想做曾经不敢做的小事", icon: "💪" },
+  { text: "一起刷次牙", icon: "🪥" },
+  { text: "一起为对方织一次围巾", icon: "🧣" },
+  { text: "一起陪对方做一次自己不感兴趣的事", icon: "🤗" },
+  { text: "一起接对方下班", icon: "🚶" },
+  { text: "一起手牵手在晚饭后散步", icon: "🌆" },
+  { text: "一起给对方准备惊喜", icon: "🎉" },
+  { text: "结婚", icon: "💒" },
+  { text: "余生很长请多指教", icon: "💖" }
+];
+
+// ========== STATE ==========
+let completedItems = JSON.parse(localStorage.getItem('couple100_completed') || '{}');
+let currentItemIndex = null;
+
+// ========== RENDER CHECKLIST ==========
+const checklistEl = document.getElementById('checklist');
+items.forEach((item, index) => {
+  const div = document.createElement('div');
+  div.className = 'checklist-item' + (completedItems[index] ? ' completed' : '');
+  div.innerHTML = `
+    <span class="item-num">${String(index + 1).padStart(2, '0')}</span>
+    <span class="item-icon">${item.icon}</span>
+    <span class="item-text">${item.text}</span>
+  `;
+  div.addEventListener('click', () => openModal(index));
+  checklistEl.appendChild(div);
+});
+
+// ========== MODAL ==========
+const modalOverlay = document.getElementById('modalOverlay');
+const modalItemName = document.getElementById('modalItemName');
+const modalHeart = document.getElementById('modalHeart');
+
+function openModal(index) {
+  currentItemIndex = index;
+  const item = items[index];
+  modalItemName.textContent = item.icon + ' ' + item.text;
+  if (completedItems[index]) {
+    modalHeart.textContent = '💔';
+    document.getElementById('btnComplete').style.opacity = '0.5';
+    document.getElementById('btnUncomplete').style.display = 'inline-block';
+  } else {
+    modalHeart.textContent = '💖';
+    document.getElementById('btnComplete').style.opacity = '1';
+  }
+  modalOverlay.classList.add('active');
+}
+
+function closeModal() {
+  modalOverlay.classList.remove('active');
+  currentItemIndex = null;
+}
+
+function confirmItem(complete) {
+  if (currentItemIndex === null) return;
+  const wasAlreadyCompleted = completedItems[currentItemIndex];
+  completedItems[currentItemIndex] = complete;
+  localStorage.setItem('couple100_completed', JSON.stringify(completedItems));
+
+  // Update the DOM
+  const itemEl = checklistEl.children[currentItemIndex];
+  if (complete) {
+    itemEl.classList.add('completed');
+    if (!wasAlreadyCompleted) {
+      spawnConfetti();
+    }
+  } else {
+    itemEl.classList.remove('completed');
+  }
+
+  updateProgress();
+  closeModal();
+}
+
+modalOverlay.addEventListener('click', function(e) {
+  if (e.target === modalOverlay) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ========== PROGRESS ==========
+function updateProgress() {
+  const count = Object.values(completedItems).filter(v => v === true).length;
+  const pct = Math.round((count / 100) * 100);
+  document.getElementById('progressText').textContent = count + ' / 100';
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('heroNum').textContent = count;
+}
+
+// ========== RESET ==========
+function resetAll() {
+  if (confirm('确定要重置所有完成记录吗？这个操作无法撤销哦～')) {
+    completedItems = {};
+    localStorage.removeItem('couple100_completed');
+    Array.from(checklistEl.children).forEach(el => el.classList.remove('completed'));
+    updateProgress();
+  }
+}
+
+// ========== CONFETTI ==========
+function spawnConfetti() {
+  const colors = ['#FF6B9D', '#FFB6C1', '#FF1493', '#FFD700', '#FF8FAB', '#FFE4EC', '#FF69B4', '#FFC0CB'];
+  const shapes = ['♥', '✦', '✿', '●', '♦', '✧'];
+  for (let i = 0; i < 40; i++) {
+    setTimeout(() => {
+      const el = document.createElement('span');
+      el.className = 'confetti-piece';
+      el.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+      el.style.cssText = `
+        left: ${Math.random() * 100}vw;
+        top: -5vh;
+        font-size: ${Math.random() * 20 + 12}px;
+        color: ${colors[Math.floor(Math.random() * colors.length)]};
+        animation-duration: ${Math.random() * 2 + 2.5}s;
+        animation-delay: 0s;
+      `;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 4000);
+    }, i * 25);
+  }
+}
+
+// ========== FLOATING HEARTS BG ==========
+function createFloatingHearts() {
+  const bg = document.getElementById('heartsBg');
+  const heartShapes = ['♥', '💕', '💖', '💗', '💝', '✨', '🌸', '🩷'];
+  for (let i = 0; i < 30; i++) {
+    const heart = document.createElement('span');
+    heart.className = 'heart-float';
+    heart.textContent = heartShapes[Math.floor(Math.random() * heartShapes.length)];
+    heart.style.cssText = `
+      left: ${Math.random() * 100}%;
+      animation-duration: ${Math.random() * 15 + 12}s;
+      animation-delay: ${Math.random() * 12}s;
+      font-size: ${Math.random() * 22 + 16}px;
+      opacity: ${Math.random() * 0.1 + 0.08};
+    `;
+    bg.appendChild(heart);
+  }
+}
+
+// ========== INIT ==========
+createFloatingHearts();
+updateProgress();
+</script>
+</body>
+</html>
